@@ -1,0 +1,24 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+<form method="POST" enctype="multipart/form-data" action="/delete">
+<table>
+				<tr><td>Folder to delete in:</td><td><input type="text" name="somefile"  id="somefiles" /></td></tr>
+				<tr><td>File to delete in this folder:</td><td><input type="text" name="somefile1"  id="somefiles1" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Delete" /></td></tr>
+			</table>
+			
+</form>
+</div>
+<div>
+<a href="/">Back to uploading!</a>
+</div>
+
+</body>
+</html>

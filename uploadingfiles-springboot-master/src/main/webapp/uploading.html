@@ -1,0 +1,69 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Uploading Files </title>
+        
+        <script type="text/javascript">
+
+
+function listFiles(){
+var fs = new ActiveXObject("Scripting.FileSystemObject");
+var Folder = fs.GetFolder("E://tempFolder");
+var FileCollection = Folder.Files;
+var Files = new Array();
+
+for(var objEnum = new Enumerator(FileCollection); !objEnum.atEnd(); objEnum.moveNext())
+{
+   strFileName = objEnum.item();
+   Files.push(strFileName)
+}
+
+delete objEnum;
+objEnum = null;
+
+FileCollection = null;
+Folder = null;
+
+for(var i = 0; i < Files.length; i++)
+{
+  document.write(Files[i] + "<br />");
+}
+}
+</script>
+    </head>
+
+  <body > 
+        <form name="uploadingForm" enctype="multipart/form-data" action="/" method="POST">
+            <div>
+            <table>
+           <tr><td>Choose File to upload:</td><td><input id="fileInput" type="file" name="uploadingFiles"  multiple><br><br></td><td>
+             
+                 <tr><td>Enter Folder name : </td><td><input type="text" name="somevalue" id="somevalue" onload=""  > </td><td>
+				
+                
+          
+              <tr><td> <input type="submit" value="Upload files" ></td></tr>
+                    </table>   
+                
+            </div>  
+        </form>
+        
+        <div>
+        <a href="/delete"> Deleting page</a><br><br><br>
+        </div>
+        <div>
+            <div>Uploaded files:</div>
+            <#list files as file>
+            <div>
+            ${file.getName()}
+            </div>
+            </#list>
+        </div>
+      
+     
+    
+        
+     
+    </body>
+</html>
